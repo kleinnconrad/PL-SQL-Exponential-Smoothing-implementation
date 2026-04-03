@@ -1,3 +1,14 @@
+## Table of Contents
+
+* [PL/SQL Exponential Smoothing](#plsql-exponential-smoothing)
+  * [Overview](#overview)
+  * [Prerequisites](#prerequisites)
+  * [Configuration](#configuration)
+* [Exponential Smoothing Formula](#exponential-smoothing-formula)
+  * [The Formula](#the-formula)
+  * [Usage](#usage)
+
+
 # PL/SQL Exponential Smoothing
 
 This repository provides a PL/SQL procedure for calculating simple exponential smoothing directly within an Oracle Database. It is designed for time-series forecasting and trend analysis, applying diminishing weights to older observations.
