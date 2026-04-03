@@ -10,7 +10,7 @@ SELECT MAX(K) INTO MAX_K  -- Anzahl Beobachtungen
         (
             SELECT DATUM, SUM(KUENDIGER) AS KUENDIGER
             ,ROW_NUMBER() OVER(PARTITION BY 1 ORDER BY DATUM ASC) AS K
-                FROM ANALYTICS.CORONA_MONITORING
+                FROM source_table
             WHERE KUENDIGER IS NOT NULL
             group by datum
             ORDER BY DATUM ASC
@@ -33,7 +33,7 @@ FOR I IN 0..10 LOOP
                                                             FROM
                                                                 (
                                                                     SELECT DATUM, SUM(KUENDIGER) AS KUENDIGER
-                                                                        FROM ANALYTICS.CORONA_MONITORING
+                                                                        FROM source_table
                                                                     WHERE KUENDIGER IS NOT NULL
                                                                     group by datum
                                                                 )
@@ -50,7 +50,7 @@ FOR I IN 0..10 LOOP
                                 FROM (
                                         SELECT DATUM, SUM(KUENDIGER) AS KUENDIGER
                                         ,ROW_NUMBER() OVER(PARTITION BY 1 ORDER BY DATUM ASC) AS K
-                                            FROM ANALYTICS.CORONA_MONITORING
+                                            FROM source_table
                                         WHERE KUENDIGER IS NOT NULL
                                         group by datum
                                         ORDER BY DATUM ASC
