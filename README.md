@@ -17,7 +17,25 @@ The procedure `EXPONENTIAL_SMOOTHING` processes sequential data and computes a s
 Before deploying the procedure, you may need to adjust the following variables within the script to fit your specific dataset:
 
 * `alpha`: The smoothing factor (default is `0.2`). A higher alpha discounts older observations faster. **Note:** Ensure this is defined as `NUMBER` to prevent decimal truncation.
-*  script orders data sequentially by a column named `DATUM`. Ensure your source table uses this naming convention or update the script accordingly. 
+*  script orders data sequentially by a column named `DATUM`. Ensure your source table uses this naming convention or update the script accordingly.
+
+# Exponential Smoothing Formula
+
+The PL/SQL script implements the **expanded (or iterative) form** of Simple Exponential Smoothing (SES). Instead of computing the forecast recursively row-by-row ($S_t = \alpha Y_t + (1-\alpha)S_{t-1}$), the script calculates it using a set-based approach over a specific window of data.
+
+## The Formula
+
+Expressed mathematically, the formula used in your script is:
+
+$$S = \sum_{k} \left[ \alpha (1-\alpha)^k \cdot Y_k \right] + (1-\alpha)^{n+1} \cdot Y_{base}$$
+
+Where:
+* **$S$**: The resulting smoothed value (forecast).
+* **$\alpha$** (`alpha`): The smoothing parameter (set to 0.2 in the script). It dictates how much weight is given to recent versus older observations.
+* **$Y_k$** (`KUENDIGER`): The actual historical observation at a specific time index $k$.
+* **$k$** (`K`): The time index or age of the observation relative to the current calculation window.
+* **$n$** (`ANZ`): The total number of observations in the current sliding window.
+* **$Y_{base}$**: The oldest actual value in the specified time window, acting as the initial anchor or $S_0$
 
 ## Usage
 
