@@ -42,5 +42,7 @@ plt.xticks(rotation=45)
 plt.legend(loc='upper left', frameon=True, shadow=True)
 plt.tight_layout()
 
-# Display plot
-plt.show()
+# Save the plot as a PNG file in the same folder as your script
+plt.savefig('exponential_smoothing_chart.png', dpi=300, bbox_inches='tight')
+print("Chart successfully saved as 'exponential_smoothing_chart.png'")
+
