@@ -1,0 +1,21 @@
+name: 2 - Deploy PL/pgSQL Procedure
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-procedure:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install PostgreSQL Client
+        run: sudo apt-get update && sudo apt-get install -y postgresql-client
+
+      - name: Deploy PL/pgSQL Script
+        run: |
+          psql "${{ secrets.SUPABASE_PSQL_URL }}" -f procedures/deploy_procedure.sql
