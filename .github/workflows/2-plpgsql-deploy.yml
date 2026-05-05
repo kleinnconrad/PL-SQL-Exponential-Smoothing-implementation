@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      # Only trigger if this exact file is modified
+      - 'src/exponential_smoothing_pg.pls'
 
 jobs:
   deploy-procedure:
@@ -18,4 +21,5 @@ jobs:
 
       - name: Deploy PL/pgSQL Script
         run: |
-          psql "${{ secrets.SUPABASE_PSQL_URL }}" -f procedures/deploy_procedure.sql
+          # Explicitly execute only this specific file
+          psql "${{ secrets.SUPABASE_PSQL_URL }}" -f src/exponential_smoothing_pg.pls
