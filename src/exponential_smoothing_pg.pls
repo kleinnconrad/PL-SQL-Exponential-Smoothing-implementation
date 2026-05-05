@@ -19,7 +19,7 @@ BEGIN
 
     EXECUTE 'TRUNCATE TABLE analytics.var_x';
 
-    -- Berechnungsfenster erzeugen
+    -- Berechnungsfenster erzeugen.
     FOR i IN 0..10 LOOP
         
         -- Explicitly insert into the prog_1 column so the ID auto-generates
