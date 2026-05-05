@@ -1,0 +1,21 @@
+name: 1 - Deploy Data Model (Flyway)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  flyway-migrate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run Flyway Migration
+        uses: flyway/flyway-github-action@v3
+        with:
+          command: migrate
+          url: ${{ secrets.SUPABASE_JDBC_URL }}
+          user: ${{ secrets.SUPABASE_DB_USER }}
+          password: ${{ secrets.SUPABASE_DB_PASSWORD }}
+          locations: filesystem:sql
