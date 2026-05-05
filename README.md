@@ -1,5 +1,5 @@
-[![1 - Deploy Data Model (Flyway)](https://github.com/<USERNAME>/<REPO>/actions/workflows/1-flyway-deploy.yml/badge.svg)](https://github.com/<USERNAME>/<REPO>/actions/workflows/1-flyway-deploy.yml)
-[![2 - Deploy PL/pgSQL Procedure](https://github.com/<USERNAME>/<REPO>/actions/workflows/2-plpgsql-deploy.yml/badge.svg)](https://github.com/<USERNAME>/<REPO>/actions/workflows/2-plpgsql-deploy.yml)
+[![1 - Deploy Data Model (Flyway)](https://github.com/kleinnconrad/plsql-exponential-smoothing-implementation/actions/workflows/1-flyway-deploy.yml/badge.svg)](https://github.com/kleinnconrad/plsql-exponential-smoothing-implementation/actions/workflows/1-flyway-deploy.yml)
+[![2 - Deploy PL/pgSQL Procedure](https://github.com/kleinnconrad/plsql-exponential-smoothing-implementation/actions/workflows/2-plpgsql-deploy.yml/badge.svg)](https://github.com/kleinnconrad/plsql-exponential-smoothing-implementation/actions/workflows/2-plpgsql-deploy.yml)
 
 ## Table of Contents
 
