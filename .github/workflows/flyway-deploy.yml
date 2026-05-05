@@ -1,0 +1,25 @@
+name: Deploy Data Model via Flyway
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'sql/**'
+
+jobs:
+  flyway-migrate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run Flyway Migration
+        uses: flyway/flyway-github-action@v3
+        with:
+          command: migrate
+          url: ${{ secrets.ORACLE_DB_URL }}
+          user: ${{ secrets.ORACLE_DB_USER }}
+          password: ${{ secrets.ORACLE_DB_PASSWORD }}
+          locations: filesystem:sql
