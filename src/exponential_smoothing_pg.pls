@@ -6,7 +6,7 @@ DECLARE
     max_k INT;
     alpha NUMERIC := 0.2;
 BEGIN
-    -- Anzahl Beobachtungen
+    -- Anzahl Beobachtungen.
     SELECT MAX(K) INTO max_k  
     FROM
     (
