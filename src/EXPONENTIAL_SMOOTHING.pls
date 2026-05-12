@@ -5,7 +5,7 @@ alpha decimal := 0.2;
 
 BEGIN
 
-SELECT MAX(K) INTO MAX_K  -- Anzahl Beobachtungen
+SELECT MAX(K) INTO MAX_K  -- Anzahl Beobachtungen.
     FROM
         (
             SELECT DATUM, SUM(KUENDIGER) AS KUENDIGER
